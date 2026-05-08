@@ -1,11 +1,5 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("Please add MONGODB_URI in .env.local");
-}
-
 let cached = global.mongoose;
 
 if (!cached) {
@@ -16,6 +10,12 @@ if (!cached) {
 }
 
 export async function connectDB() {
+  const MONGODB_URI = process.env.MONGODB_URI;
+
+  if (!MONGODB_URI) {
+    throw new Error("Please add MONGODB_URI in Vercel Environment Variables");
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
