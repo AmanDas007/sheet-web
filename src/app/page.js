@@ -129,7 +129,7 @@ export default function HomePage() {
   };
 
   const exportCSV = () => {
-    const header = ["क्र.सं.", "नाम", "मोबाइल नंबर", "रकबा"];
+    const header = ["क्र.सं.", "नाम", "पिता का नाम", "मोबाइल नंबर"];
     const csvRows = [header.map(csvValue).join(",")];
 
     rows.forEach((row, index) => {
@@ -264,8 +264,8 @@ export default function HomePage() {
               <tr>
                 <th>क्र.सं.</th>
                 <th>नाम</th>
+                <th>पिता का नाम</th>
                 <th>मोबाइल नंबर</th>
-                <th>रकबा</th>
               </tr>
             </thead>
 
@@ -402,7 +402,7 @@ export default function HomePage() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="नाम, फोन या रकबा में खोजें..."
+              placeholder="नाम, पिता का नाम या मोबाइल नंबर में खोजें..."
               className="w-full bg-transparent outline-none placeholder:text-gray-300"
             />
           </div>
@@ -421,11 +421,11 @@ export default function HomePage() {
                 </th>
 
                 <th className="border border-gray-300 px-4 py-10 text-left text-xl font-black sm:px-8 sm:py-16 sm:text-3xl">
-                  मोबाइल नंबर
+                  पिता का नाम
                 </th>
 
                 <th className="border border-gray-300 px-4 py-10 text-left text-xl font-black sm:px-8 sm:py-16 sm:text-3xl">
-                  रकबा
+                  मोबाइल नंबर
                 </th>
 
                 <th className="border border-gray-300 px-4 py-10 text-center text-xl font-black sm:px-8 sm:py-16 sm:text-3xl">
@@ -454,7 +454,7 @@ export default function HomePage() {
 
                   <td className="border border-gray-300 px-4 py-6 sm:px-8 sm:py-8">
                     <input
-                      type="tel"
+                      type="text"
                       value={row.phone}
                       onChange={(e) =>
                         handleChange(originalIndex, "phone", e.target.value)
@@ -465,7 +465,7 @@ export default function HomePage() {
 
                   <td className="border border-gray-300 px-4 py-6 sm:px-8 sm:py-8">
                     <input
-                      type="text"
+                      type="tel"
                       value={row.rakba}
                       onChange={(e) =>
                         handleChange(originalIndex, "rakba", e.target.value)
